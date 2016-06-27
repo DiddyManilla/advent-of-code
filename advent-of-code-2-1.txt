@@ -1,4 +1,4 @@
-var input = "29x13x26
+var input =`29x13x26
 11x11x14
 27x2x5
 6x10x13
@@ -997,7 +997,7 @@ var input = "29x13x26
 27x26x11
 3x2x22
 14x3x5
-10x9x8";
+10x9x8`;
 input = input.split("\n");
 var totalSqrFt = 0;
 for (var i = 0; i < input.length; i++) {
