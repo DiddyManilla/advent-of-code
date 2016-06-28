@@ -1006,11 +1006,11 @@ for (var i = 0; i < input.length; i++) {
     var w = dimensions[1];
     var h = dimensions[2];
     totalSqrFt += 2*l*w + 2*w*h + 2*h*l;
-    if (l*w < w*h && l*w < l*h) {
+    if (l*w <= w*h && l*w <= l*h) {
         totalSqrFt += l*w;
-    } else if (w*h < l*w && w*h < l*h) {
+    } else if (w*h <= l*w && w*h <= l*h) {
         totalSqrFt += w*h;
-    } else if (h*l < l*w && h*l < l*h) {
+    } else if (h*l <= l*w && h*l <= l*h) {
         totalSqrFt += h*l;
     }
 }
