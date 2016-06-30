@@ -1,52 +1,26 @@
 var input = "bgvyzdsv";
 function md5Hash(input) {
-    var s, K = [];
+    var s = []
+	var K = [];
 
-    s = { 7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22, 5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20, 4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23, 6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21 };
-console.log(s);
-
-    for (var i = 0; i < 16; i++) {
-        if (i % 4 == 0) {
-	    s[i] = 7;
-        } else if (i % 4 == 1) {
-      	    s[i] = 12;
-        } else if (i % 4 == 2) {
-	    s[i] = 17;
-        } else if (i % 4 == 3) {
-	    s[i] = 22;
-        }
-    for (var i = 0; i < 16; i++) {
-        if (i % 4 == 0) {
-	    s[i] = 5;
-        } else if (i % 4 == 1) {
-	    s[i] = 9;
-        } else if (i % 4 == 2) {
-	    s[i] = 14;
-        } else if (i % 4 == 3) {
-	    s[i] = 20;
-        }
-    for (var i = 32; i < 48; i++) {
-        if (i % 4 == 0) {
-	    s[i] = 4;
-        } else if (i % 4 == 1) {
-	    s[i] = 11;
-        } else if (i % 4 == 2) {
-	    s[i] = 16;
-        } else if (i % 4 == 3) {
-	    s[i] = 23;
-        }
-    }
-    for (var i = 48; i < 64; i++) {
-        if (i % 4 == 0) {
-	    s[i] = 6;
-        } else if (i % 4 == 1) {
-	    s[i] = 10;
-        } else if (i % 4 == 2) {
-	    s[i] = 15;
-        } else if (i % 4 == 3) {
-	    s[i] = 21;
-        }
-    }
-    console.log(s);
+    s = [ 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,  4, 11, 16, 23, 6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21 ];
+	
+    for (var i = 0; i < 64; i++) {
+		K[i] = Math.floor(Math.pow(2, 32) * Math.abs(Math.sin(i + 1)));
+	}
+	
+	var a0 = 0x67452301;  //A
+	var b0 = 0xefcdab89;  //B
+    var c0 = 0x98badcfe;  //C
+    var d0 = 0x10325476;  //D
+	input = input << 1;
+	input |= 1;
+	while ((input.length * 16) % 512 != 448) {
+		input = input << 1;
+	}
+	var toAppend = (input.length * 16) % Math.pow(2, 64);
+	input = input << toAppend.toString(2).length;
+	input = input | toAppend;
+	for (i = 0; i < 
 }
 md5Hash(input);
